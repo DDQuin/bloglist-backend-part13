@@ -14,31 +14,30 @@ router.get('/', async (req, res) => {
     res.json(blogs)
   })
   
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
     try {
         const blog = await Blog.build(req.body)
         blog.likes = 0
         await blog.save()
         return res.json(blog)
     } catch (error) {
-        return res.status(400).json({ error })
+        next(error)
       }
 })
 
-router.put('/:id', blogFinder, async (req, res) => {
+router.put('/:id', blogFinder, async (req, res, next) => {
   if (!req.blog) {
-    res.status(404).end()
+    return res.status(404).json({ error: 'Blog not found!' }).end()
   }
   if (!req.body.likes) {
-    res.status(400).end()
+    return res.status(400).json({ error: 'Likes not included!' }).end()
   }
-
-  req.blog.likes = req.body.likes
   try {
+    req.blog.likes = req.body.likes
     await req.blog.save()
     res.json(req.blog)
   } catch(error) {
-    res.status(400).end()
+    next(error)
   }
  
 })
