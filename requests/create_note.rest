@@ -20,7 +20,7 @@ GET http://localhost:3001/api/blogs
 Content-Type: application/json
 
 ###
-GET http://localhost:3001/api/blogs?search=great
+GET http://localhost:3001/api/blogs?search=bill
 Content-Type: application/json
 ###
 

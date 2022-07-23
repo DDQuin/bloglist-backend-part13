@@ -27,12 +27,23 @@ const blogFinder = async (req, res, next) => {
 
 
 router.get('/', async (req, res) => {
-  const where = {}
+  let where = {}
   if (req.query.search) {
-    where.title = {
-      [Op.iLike]: `%${req.query.search}%`
-    }
+  where = {
+    [Op.or]: [
+      {
+        title: {
+          [Op.iLike]: `%${req.query.search}%`
+        }
+      },
+      {
+        author: {
+          [Op.iLike]: `%${req.query.search}%`
+        }
+      }
+    ]
   }
+}
   const blogs = await Blog.findAll({
     attributes: { exclude: ['userId'] },
     include: {
@@ -41,6 +52,7 @@ router.get('/', async (req, res) => {
     },
     where
   })
+
     res.json(blogs)
   })
   
@@ -84,5 +96,7 @@ router.delete('/:id', tokenExtractor, blogFinder, async (req, res) => {
       return res.status(204).end()
     }
 })
+
+
 
 module.exports = router
