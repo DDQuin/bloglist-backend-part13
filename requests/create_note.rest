@@ -32,8 +32,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "sof2er",
-  "name": "Sof"
+  "username": "sof2er2@gmail.com",
+  "name": "Sof2"
 }
 ###
 PUT http://localhost:3001/api/users/ddquin
