@@ -24,12 +24,12 @@ GET http://localhost:3001/api/blogs?search=bill
 Content-Type: application/json
 ###
 
-PUT http://localhost:3001/api/blogs/3
+PUT http://localhost:3001/api/blogs/9
 Content-Type: application/json
 
 {
   "url": "http://google.com",
-  "likes": 2
+  "likes": 3
 }
 
 ###
