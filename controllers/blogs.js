@@ -1,7 +1,23 @@
 const router = require('express').Router()
 
 const e = require('express')
-const { Blog } = require('../models')
+const { Blog, User } = require('../models')
+const { SECRET } = require('../util/config')
+const jwt = require('jsonwebtoken');
+
+const tokenExtractor = (req, res, next) => {
+  const authorization = req.get('authorization')
+  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+    try {
+      req.decodedToken = jwt.verify(authorization.substring(7), SECRET)
+    } catch{
+      return res.status(401).json({ error: 'token invalid' })
+    }
+  }  else {
+    return res.status(401).json({ error: 'token missing' })
+  }
+  next()
+}
 
 const blogFinder = async (req, res, next) => {
   req.blog = await Blog.findByPk(req.params.id)
@@ -14,9 +30,10 @@ router.get('/', async (req, res) => {
     res.json(blogs)
   })
   
-router.post('/', async (req, res, next) => {
+router.post('/', tokenExtractor, async (req, res, next) => {
     try {
-        const blog = await Blog.build(req.body)
+        const user = await User.findByPk(req.decodedToken.id)
+        const blog = await Blog.build({...req.body, userId: user.id})
         blog.likes = 0
         await blog.save()
         return res.json(blog)
@@ -42,11 +59,15 @@ router.put('/:id', blogFinder, async (req, res, next) => {
  
 })
   
-router.delete('/:id', blogFinder, async (req, res) => {
+router.delete('/:id', tokenExtractor, blogFinder, async (req, res) => {
+  const user = await User.findByPk(req.decodedToken.id)
     if (req.blog) {
+      if (user.id !== req.blog.userId) {
+        return res.status(400).json({error: 'You do not have permission to delete this'}).end()
+      }
       await req.blog.destroy()
     } else {
-      res.status(204).end()
+      return res.status(204).end()
     }
 })
 

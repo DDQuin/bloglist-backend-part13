@@ -1,14 +1,19 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbjQyMCIsImlkIjoxLCJpYXQiOjE2NTg1NzMxMDF9.cdPUz8zs1NDT0RXhrWtYkT0a2wHYCrzM8yO6ni7zrTw
 
 {
-  "title": "pog3",
-  "url": "http://google.com"
+  "title": "Great adventure",
+  "author": "Bill Gattsby",
+  "url": "http://google.com",
+  "likes": 2
 }
 
 ###
-DELETE http://localhost:3001/api/blogs/2
+DELETE http://localhost:3001/api/blogs/6
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbjQyMCIsImlkIjoxLCJpYXQiOjE2NTg1NzMxMDF9.cdPUz8zs1NDT0RXhrWtYkT0a2wHYCrzM8yO6ni7zrTw
+
 
 ###
 GET http://localhost:3001/api/blogs
@@ -41,6 +46,15 @@ Content-Type: application/json
 
 {
   "username": "ddquin420"
+}
+
+###
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username": "sof2er",
+  "password": "secret"
 }
 
  
