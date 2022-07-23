@@ -15,3 +15,15 @@ Content-Type: application/json
 ###
 GET http://localhost:3001/api/blogs
 Content-Type: application/json
+###
+
+PUT http://localhost:3001/api/blogs/1
+Content-Type: application/json
+
+{
+  "title": "pog3",
+  "author": "DDQuin",
+  "url": "http://google.com",
+  "likes": 4
+}
+ 
