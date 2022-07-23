@@ -3,8 +3,8 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbjQyMCIsImlkIjoxLCJpYXQiOjE2NTg1NzMxMDF9.cdPUz8zs1NDT0RXhrWtYkT0a2wHYCrzM8yO6ni7zrTw
 
 {
-  "title": "Great adventure",
-  "author": "Bill Gattsby",
+  "title": "Greats adventure",
+  "author": "Bill Gattsby2",
   "url": "http://google.com",
   "likes": 2
 }
@@ -24,12 +24,12 @@ GET http://localhost:3001/api/blogs?search=bill
 Content-Type: application/json
 ###
 
-PUT http://localhost:3001/api/blogs/9
+PUT http://localhost:3001/api/blogs/11
 Content-Type: application/json
 
 {
   "url": "http://google.com",
-  "likes": 3
+  "likes": 11
 }
 
 ###
@@ -61,4 +61,8 @@ Content-Type: application/json
   "password": "secret"
 }
 
+###
+GET http://localhost:3001/api/authors
+Content-Type: application/json
+###
  
