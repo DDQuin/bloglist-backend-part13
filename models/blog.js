@@ -22,7 +22,15 @@ Blog.init({
   },
   likes: {
     type: DataTypes.INTEGER
-  }
+  },
+  year: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    validate: {
+      max: 2022, 
+      min: 1991, 
+    },
+  },
 }, {
   sequelize,
   underscored: true,
