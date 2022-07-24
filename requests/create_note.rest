@@ -1,13 +1,13 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbkBnbWFpbC5jb20iLCJpZCI6MiwiaWF0IjoxNjU4NjU0MjU4fQ.tf8lUAz0B1xzS8AOG7Ki9dW7mBoex1VzZ8h8AcCq0eo
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvZjJlckBnbWFpbC5jb20iLCJpZCI6MiwiaWF0IjoxNjU4NjY5OTM3fQ.4ZuTGLHCBSYTFxh0ypGKu4F7anTGXg0kCicSnUk1RmU
 
 {
-  "title": "Huck finn",
-  "author": "Mark twain",
+  "title": "Great Adventure",
+  "author": "Bill Gatsby",
   "url": "http://google.com",
   "likes": 5,
-  "year": "wasd"
+  "year": 1995
 }
 
 ###
@@ -42,8 +42,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "ddquin@gmail.com",
-  "name": "DDQuin"
+  "username": "sof2er@gmail.com",
+  "name": "Sof"
 }
 ###
 PUT http://localhost:3001/api/users/ddquin
@@ -58,7 +58,7 @@ POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-  "username": "ddquin@gmail.com",
+  "username": "sof2er@gmail.com",
   "password": "secret"
 }
 
@@ -66,4 +66,17 @@ Content-Type: application/json
 GET http://localhost:3001/api/authors
 Content-Type: application/json
 ###
+
+POST http://localhost:3001/api/readinglists
+Content-Type: application/json
+
+{
+  "blogId": 2,
+  "userId": 2
+}
+
+###
+GET http://localhost:3001/api/users/2
+Content-Type: application/json
+
  
