@@ -10,6 +10,7 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const authorRouter = require('./controllers/authors')
 const readinglistRouter = require('./controllers/readinglist')
+const logoutRouter = require('./controllers/logout')
 
 app.use(express.json())
 
@@ -18,6 +19,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/authors', authorRouter)
 app.use('/api/readinglists', readinglistRouter)
+app.use('/api/logout', logoutRouter)
 
 app.use(middleware.errorHandler)
 

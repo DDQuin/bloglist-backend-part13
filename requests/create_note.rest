@@ -1,6 +1,6 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvZjJlckBnbWFpbC5jb20iLCJpZCI6MiwiaWF0IjoxNjU4NjcxODQxfQ.8R0ejHwUCuuGvuyQKoQQxX63mBmHMRE5kilBNXV2s2M
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjU4NzQ1ODA2fQ.jxTzs20HQZj6Yfcxa6fL4OyqN7VhaS8dqs5C9FE-H7g
 
 {
   "title": "Great Adventure",
@@ -83,11 +83,16 @@ Content-Type: application/json
 ###
 PUT http://localhost:3001/api/readinglists/5
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjU4NjcxOTg4fQ.cTUEn6JuSV6SCK8tncOy1Cc1B8zCbjmVPyJoaq4MiF8
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjU4NzQ1MjQwfQ.iEeBM6ye7nZBd1DJcsguP4gQ7VffOOdptiH2ncgr3jE
 
 {
   "read": true
 }
+
+###
+DELETE http://localhost:3001/api/logout
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRkcXVpbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjU4NzQ1ODA2fQ.jxTzs20HQZj6Yfcxa6fL4OyqN7VhaS8dqs5C9FE-H7g
 
 
  
